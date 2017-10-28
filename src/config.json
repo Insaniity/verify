@@ -1,0 +1,23 @@
+{  
+    "token":"MzYzNjU0NjgyNDY5NDY2MTMz.DNaK0w.747LZF8FOECof6b4UroWcZm-NWc",
+    "clientid":"363654682469466133",
+    "prefix":"!",
+    "chat":"new-members",
+    "userrole":"373964968501968896",
+    "streamingGame":"verify bot",
+    "streamingLink":"https://www.twitch.tv/ROBLOX",
+    "evalAllowed":"false",
+    "ownerid":"190174684371746818",
+    "possibleCaptchaColors":[  
+        "red",
+        "green",
+        "blue",
+        "magenta",
+        "brown",
+        "darkcyan",
+        "gold"
+    ],
+    "blockedIDs":{  
+
+    }
+}
