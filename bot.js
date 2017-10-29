@@ -99,11 +99,11 @@ client.on('message', (message) => {
                         }
                     }, function (err) {
                         message.author.send("", {
-                            files: ['./captchas/' + floor + ".png"]
+                            files: ['./captchas/' + author + floor + ".png"]
                         })
                     });
                     setTimeout(function () {
-                        fs.unlinkSync("./captchas/" + floor + ".png");
+                        fs.unlinkSync("./captchas/" + author + floor + ".png");
                     }, 30000);
                     message.author.send({
                         embed: {
