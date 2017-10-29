@@ -30,8 +30,7 @@ client.on("guildMemberAdd", (member) => {
 
 
 client.on("ready", () => {
-    console.log("Logged in!")
-    client.user.setGame(streamingGame, streamingLink);
+    console.log("Right! I'm ready to verify people!")
 });
 
 client.on('message', (message) => {
@@ -63,6 +62,7 @@ client.on('message', (message) => {
                 } else {
                     var captcha = Math.floor(Math.random() * 9000) + 1001;
                     var floor = Math.floor(Math.random() * 10000) + 1;
+                    var jesus = Math.floor(Math.random() * 12342343252345) + 1235;
                     let webshot = require("webshot");
                     var fontFace, fontSize, fontPosition;
                     if (floor < 5000) {
@@ -100,11 +100,11 @@ client.on('message', (message) => {
                         }
                     }, function (err) {
                         message.author.send("", {
-                            files: ['./captchas/' + floor + ".png"]
+                            files: ['./captchas/krystal' + jesus + ".png"]
                         })
                     });
                     setTimeout(function () {
-                        fs.unlinkSync("./captchas/" + floor + ".png");
+                        fs.unlinkSync("./captchas/krystal" + jesus + ".png");
                     }, 30000);
                     message.author.send({
                         embed: {
