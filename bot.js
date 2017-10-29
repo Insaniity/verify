@@ -62,7 +62,6 @@ client.on('message', (message) => {
                 } else {
                     var captcha = Math.floor(Math.random() * 9000) + 1001;
                     var floor = Math.floor(Math.random() * 10000) + 1;
-                    var jesus = Math.floor(Math.random() * 12342343252345) + 1235;
                     let webshot = require("webshot");
                     var fontFace, fontSize, fontPosition;
                     if (floor < 5000) {
@@ -100,11 +99,11 @@ client.on('message', (message) => {
                         }
                     }, function (err) {
                         message.author.send("", {
-                            files: ['./captchas/krystal' + jesus + ".png"]
+                            files: ['./captchas/' + floor + ".png"]
                         })
                     });
                     setTimeout(function () {
-                        fs.unlinkSync("./captchas/krystal" + jesus + ".png");
+                        fs.unlinkSync("./captchas/" + floor + ".png");
                     }, 30000);
                     message.author.send({
                         embed: {
