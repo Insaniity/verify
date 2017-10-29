@@ -23,7 +23,7 @@ client.on("guildMemberAdd", (member) => {
     member.user.send({
         embed: {
             color: 0xffff00,
-            description: "To verify yourself as a human, write `" + prefix + "receive` in the guild to receive your captcha"
+            description: "Hey dude, we need you to verify before you can interact with people! Just say !verify in #verify"
         }
     });
 });
@@ -57,7 +57,7 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0xff0000,
-                            description: "Already verified on `" + message.guild.name + "`"
+                            description: "Man, aren't you already verified? wait what??"
                         }
                     });
                 } else {
@@ -109,7 +109,7 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0x0000ff,
-                            description: "Write `!verify` <code> in the guild to write in all channel. \n\n**Verification bot by now you see me#7023 and Krystal ♡#4054**"
+                            description: "Almost there! Just do `!verify <code>` with the code in the captcha below!\n\n**Made by now you see me#7023 and Krystal ♡#4054**"
                         }
                     });
                     message.delete();
@@ -141,17 +141,17 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0xff0000,
-                            description: "Already verified on `" + message.guild.name + "`"
+                            description: "Man, aren't you already verified? wait what??"
                         }
                     });
                 } else {
                     message.author.send({
                         embed: {
                             color: 0x00ff00,
-                            description: "Successfully verified on `" + message.guild.name + "`"
+                            description: "All done! You are now verified, you should be able to access all the public channels!"
                         }
                     });
-                    client.channels.find('name', normalChat).send("<@" + message.author.id + "> was successfully verified.");
+                    client.channels.find('name', normalChat).send("<@" + message.author.id + "> was successfully verified.\n**Stats**" + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "| " + message.author.tag + "(" + message.author.id + ").\n");
                     queryFile.query[message.author.id + "x" + oldcaptcha].verified = "true";
                     queue.pop();
                     fs.appendFileSync("./verify_logs.txt", "[VerifyBot] " + time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "| " + message.author.tag + "(" + message.author.id + ") verified himself.\n");
@@ -160,7 +160,7 @@ client.on('message', (message) => {
 
             } else {
                 if (message.content.toLowerCase() != prefix + "verify") {
-                    message.author.send("Hey dude! Wrong Captcha!");
+                    message.author.send("Wrong captcha, maybe you used an old one..? Just do !verify in #verify to recieve a new one!");
                     message.delete();
                 }
             }
@@ -171,30 +171,30 @@ client.on('message', (message) => {
             message.guild.member(message.mentions.users.first()).kick();
         }
     }
-    if (message.content.toLowerCase().startsWith(prefix + "block")) {
+    if (message.content.toLowerCase().startsWith(prefix + "blacklist")) {
         if (message.member.hasPermission('ADMINISTRATOR')) {
             if (!file.blockedIDs[args[0]]) {
                 file.blockedIDs[args[0]] = {
                     blocked: "true"
                 };
                 fs.writeFileSync("./src/config.json", JSON.stringify(file));
-                message.channel.send("Added `" + message.content.substr(7) + "` to the blocked list.");
+                message.channel.send("Added `" + message.content.substr(7) + "` to the blacklist.");
             } else {
-                message.channel.send("ID is already blocked.");
+                message.channel.send("ID is already blacklisted.");
             }
 
         } else {
             return message.channel.send("Missing Permissions");
         }
     }
-    if (message.content.toLowerCase().startsWith(prefix + "removeBlock")) {
+    if (message.content.toLowerCase().startsWith(prefix + "revoke")) {
         if (message.member.hasPermission('ADMINISTRATOR')) {
             if (file.blockedIDs[args[0]].blocked == "true") {
                 file.blockedIDs[args[0]].blocked = "false";
                 fs.writeFileSync("./src/config.json", JSON.stringify(file));
-                message.channel.send("Successfully removed the block for `" + args[0] + "`.")
+                message.channel.send("Successfully revoked the blacklist for `" + args[0] + "`.")
             } else {
-                message.channel.send("ID is not blocked.");
+                message.channel.send("ID is not blacklisted.");
             }
         } else {
             return message.channel.send("Missing Permissions");
