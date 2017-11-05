@@ -23,7 +23,7 @@ client.on("guildMemberAdd", (member) => {
     member.user.send({
         embed: {
             color: 0xffff00,
-            description: "Hey dude, we need you to verify before you can interact with people! Just say !verify in #verify"
+            description: "You have to verify before you can chat with everyone, head over to `#verify` and type `!verify`"
         }
     });
 });
@@ -92,7 +92,7 @@ client.on('message', (message) => {
                     if (bgColor === fontColor) {
                         fontColor = colors[Math.floor(Math.random() * 4) + 1];
                     }
-                    webshot('<html><body style=\'background-image: url("http://b.reich.io/jjvoab.png");\'><h1 style="font-family:' + fontFace + '; color:' + fontColor + '; font-size:' + fontSize + 'px; position: absolute; top:' + height + ';left:' + width + '; -moz-transform: rotate(' + rotate + 'deg); -ms-transform: rotate(' + rotate + 'deg);-o-transform: rotate(' + rotate + 'deg);-webkit-transform: rotate(' + rotate + 'deg);letter-spacing: ' + letterSpacing + 'px;"><i><del>' + captcha + '</del></i></h1></body></html>', './captchas/HappyHalloween_' + author.username + '_ID=!' + jesus + '.png', {
+                    webshot('<html><body style=\'background-image: url("http://b.reich.io/jjvoab.png");\'><h1 style="font-family:' + fontFace + '; color:' + fontColor + '; font-size:' + fontSize + 'px; position: absolute; top:' + height + ';left:' + width + '; -moz-transform: rotate(' + rotate + 'deg); -ms-transform: rotate(' + rotate + 'deg);-o-transform: rotate(' + rotate + 'deg);-webkit-transform: rotate(' + rotate + 'deg);letter-spacing: ' + letterSpacing + 'px;"><i><del>' + captcha + '</del></i></h1></body></html>', './captchas/KrystalThemed_' + author.username + '_ID=!' + jesus + '.png', {
                         siteType: 'html',
                         screenSize: {
                             width: 500,
@@ -100,11 +100,11 @@ client.on('message', (message) => {
                         }
                     }, function (err) {
                         message.author.send("", {
-                            files: ['./captchas/HappyHalloween_' + author.username + '_ID=!' + jesus + '.png']
+                            files: ['./captchas/KrystalThemed_' + author.username + '_ID=!' + jesus + '.png']
                         })
                     });
                     setTimeout(function () {
-                        fs.unlinkSync('./captchas/HappyHalloween_' + author.username + '_ID=!' + jesus + '.png');
+                        fs.unlinkSync('./captchas/KrystalThemed_' + author.username + '_ID=!' + jesus + '.png');
                     }, 30000);
                     message.author.send({
                         embed: {
