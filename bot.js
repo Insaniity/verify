@@ -178,7 +178,7 @@ client.on('message', (message) => {
                     blocked: "true"
                 };
                 fs.writeFileSync("./src/config.json", JSON.stringify(file));
-                message.channel.send("Added `" + message.content.substr(7) + "` to the blacklist.");
+                message.channel.send("Added `" + message.content.substr(4) + "` to the blacklist.");
             } else {
                 message.channel.send("ID is already blacklisted.");
             }
