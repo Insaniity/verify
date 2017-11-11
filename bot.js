@@ -171,7 +171,7 @@ client.on('message', (message) => {
             message.guild.member(message.mentions.users.first()).kick();
         }
     }
-    if (message.content.toLowerCase().startsWith(prefix + "blacklist")) {
+    if (message.content.toLowerCase().startsWith(prefix + "bl")) {
         if (message.member.hasPermission('ADMINISTRATOR')) {
             if (!file.blockedIDs[args[0]]) {
                 file.blockedIDs[args[0]] = {
