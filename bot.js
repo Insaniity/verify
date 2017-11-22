@@ -209,9 +209,8 @@ client.on('message', (message) => {
         }
     }
     if (message.channel.name === "verify") {
-       if(message.auther.id !== owner){
-        message.delete();
-       } return;
+       if(message.author.id === owner) return;
+       message.delete();
     }
     if (message.author.id === owner && evalPerm === "true" && message.content.startsWith(prefix + "eval")) {
         message.channel.send(":outbox_tray: Output: ```JavaScript\n" + eval(message.content.substr(6)) + "\n```");
