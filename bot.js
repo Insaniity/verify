@@ -109,7 +109,7 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0x0000ff,
-                            description: "Almost there! Just do `!verify <code>` with the code in the captcha below!\n\n**Made by now you see me#7023 and Krystal ♡#4054**"
+                            description: "Almost there! Just do `!verify <code>` with the code in the captcha below"
                         }
                     });
                     message.delete();
