@@ -124,7 +124,7 @@ client.on('message', (message) => {
 
 
                     waitingQueue.push(message.author.id);
-                    console.log(queue); *\
+                    console.log(queue); */
                 }
             }
         } else if (message.channel.name === "verify" && message.content.includes(prefix + "verify")) {
