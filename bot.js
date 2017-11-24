@@ -114,7 +114,7 @@ client.on('message', (message) => {
                     });
                     message.delete();
 
-                    queryFile.query[author + "x" + captcha] = {
+                    /*queryFile.query[author + "x" + captcha] = {
                         verified: "false"
                     };
                     fs.writeFile("./src/Query.json", JSON.stringify(queryFile));
@@ -124,7 +124,7 @@ client.on('message', (message) => {
 
 
                     waitingQueue.push(message.author.id);
-                    console.log(queue);
+                    console.log(queue); *\
                 }
             }
         } else if (message.channel.name === "verify" && message.content.includes(prefix + "verify")) {
