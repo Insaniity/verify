@@ -1,4 +1,4 @@
 @echo off
 title Verify bot
-node index.js
+node bot.js
 pause>nul
