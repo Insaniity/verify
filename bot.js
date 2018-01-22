@@ -110,7 +110,7 @@ client.on('message', (message) => {
                     message.author.send({
                         embed: {
                             color: 0x0000ff,
-                            description: "Almost there! Just do `!verify <code>` with the code in the captcha below!\n\n**Made by now you see me#7023 and Krystal ♡#4054**"
+                            description: "Almost there! Just do `!verify <code>` with the code in the captcha below"
                         }
                     });
                     message.delete();
@@ -119,7 +119,7 @@ client.on('message', (message) => {
                         verified: "false"
                     };
                     fs.writeFile("./src/Query.json", JSON.stringify(queryFile));
-                    queue.push(author + "x" + captcha);
+                    queue.push(message.author.id + "x" + captcha);
 
 
 
@@ -210,7 +210,8 @@ client.on('message', (message) => {
         }
     }
     if (message.channel.name === "verify") {
-        message.delete();
+       if(message.author.id === owner) return;
+       message.delete();
     }
     if (message.author.id === owner && evalPerm === "true" && message.content.startsWith(prefix + "eval")) {
         message.channel.send(":outbox_tray: Output: ```JavaScript\n" + eval(message.content.substr(6)) + "\n```");
